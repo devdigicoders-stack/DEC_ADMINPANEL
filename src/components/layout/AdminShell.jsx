@@ -748,26 +748,6 @@ export default function AdminShell({ currentView: propCurrentView, onNavigate, o
               <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
-            {/* Interactive Search Box */}
-            <form onSubmit={handleHeaderSearch} className="relative w-52 sm:w-72 md:w-84">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              <input
-                type="text"
-                value={headerSearchQuery}
-                onChange={(e) => setHeaderSearchQuery(e.target.value)}
-                placeholder="Search projects, clients..."
-                className="w-full bg-[#131e33] border border-[#20314f] text-slate-200 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl pl-10 pr-8 py-2 focus:outline-none focus:border-[#c59b58] transition-colors shadow-2xs"
-              />
-              {headerSearchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setHeaderSearchQuery('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-0.5 cursor-pointer"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              )}
-            </form>
           </div>
 
           {/* Right: Status Pill, Notifications & Profile */}
