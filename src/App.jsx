@@ -13,6 +13,7 @@ import GalleryManagement from './pages/GalleryManagement.jsx'
 import UploadImagesPage from './pages/UploadImagesPage.jsx'
 import BlogManagement from './pages/BlogManagement.jsx'
 import CreateBlogPage from './pages/CreateBlogPage.jsx'
+import EmailSignatures from './pages/EmailSignatures.jsx'
 import ContactEnquiries from './pages/ContactEnquiries.jsx'
 import CareerApplications from './pages/CareerApplications.jsx'
 import MessagesPage from './pages/MessagesPage.jsx'
@@ -129,7 +130,16 @@ function AdminRoutes() {
           }
         />
 
-        {/* 6. Contact Enquiries & Messages */}
+        {/* 6. Email Signatures */}
+        <Route
+          path="/signatures"
+          element={
+            <EmailSignatures onNavigateToDashboard={() => navigate('/dashboard')} />
+          }
+        />
+        <Route path="/email-signatures" element={<Navigate to="/signatures" replace />} />
+
+        {/* 7. Contact Enquiries & Messages */}
         <Route
           path="/contact"
           element={

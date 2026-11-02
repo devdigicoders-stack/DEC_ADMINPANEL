@@ -15,13 +15,13 @@ import {
   ChevronDown,
   ChevronUp,
   X,
-  Search,
   UploadCloud,
   Plus,
   LayoutList,
   MessageSquare,
   Briefcase,
   LogOut,
+  FileSignature,
   ChevronRight} from 'lucide-react'
 import { VIEW_TO_PATH, getActiveViewFromPath } from '../../constants/navigation.js'
 import { inquiryService } from '../../services/inquiryService.js'
@@ -100,13 +100,6 @@ export default function AdminShell({ currentView: propCurrentView, onNavigate, o
     setShowNotificationsMenu(false)
   }, [location.pathname])
 
-  const handleHeaderSearch = (e) => {
-    e.preventDefault()
-    if (!headerSearchQuery.trim()) return
-    const q = headerSearchQuery.trim()
-    navigate(`/projects?search=${encodeURIComponent(q)}`)
-  }
-
   // Keep dropdown open when active path changes
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -165,6 +158,7 @@ export default function AdminShell({ currentView: propCurrentView, onNavigate, o
   const isProjectsActive = currentView === 'projects' || currentView === 'add-project'
   const isGalleryActive = currentView === 'gallery' || currentView === 'upload-images'
   const isBlogActive = currentView === 'blog' || currentView === 'create-blog'
+  const isSignaturesActive = currentView === 'signatures'
   const isContactActive = currentView === 'contact' || currentView === 'messages' || currentView === 'all-enquiries'
   const isCareersActive = currentView === 'careers' || currentView === 'career-applications'
   const isContentActive = currentView === 'website-content' || currentView === 'content-management' || currentView === 'site-settings'
@@ -479,6 +473,29 @@ export default function AdminShell({ currentView: propCurrentView, onNavigate, o
                 </button>
               </div>
             )}
+          </div>
+
+          {/* 6. Email Signatures */}
+          <div>
+            <button
+              onClick={() => handleNavClick('signatures')}
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all cursor-pointer text-left ${
+                isSignaturesActive
+                  ? 'bg-gradient-to-r from-[#d8aa5d] via-[#caa055] to-[#ba8f46] text-[#14120e] font-bold shadow-md shadow-[#c59b58]/20'
+                  : 'text-slate-300 hover:text-white hover:bg-[#131e33]'
+              }`}
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <FileSignature
+                  className={`w-4.5 h-4.5 shrink-0 ${
+                    isSignaturesActive ? 'text-[#14120e]' : 'text-slate-400'
+                  }`}
+                />
+                <span className="tracking-wide text-xs sm:text-sm truncate">
+                  Email Signatures
+                </span>
+              </div>
+            </button>
           </div>
 
           {/* 6. Contact Enquiries */}
