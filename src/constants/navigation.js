@@ -10,6 +10,7 @@ export const VIEW_TO_PATH = {
   'create-blog': '/blog/create',
   signatures: '/signatures',
   'email-signatures': '/signatures',
+  cms: '/cms',
   contact: '/contact',
   'all-enquiries': '/contact',
   messages: '/messages',
@@ -32,6 +33,7 @@ export const getActiveViewFromPath = (pathname) => {
   if (pathname === '/blog/create') return 'create-blog'
   if (pathname.startsWith('/blog')) return 'blog'
   if (pathname.startsWith('/signatures') || pathname.startsWith('/email-signatures')) return 'signatures'
+  if (pathname.startsWith('/cms')) return 'cms'
   if (pathname.startsWith('/careers') || pathname.startsWith('/applications')) return 'careers'
   if (pathname.startsWith('/messages')) return 'messages'
   if (pathname.startsWith('/contact') || pathname.startsWith('/enquiries')) return 'contact'

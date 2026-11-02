@@ -14,6 +14,7 @@ import UploadImagesPage from './pages/UploadImagesPage.jsx'
 import BlogManagement from './pages/BlogManagement.jsx'
 import CreateBlogPage from './pages/CreateBlogPage.jsx'
 import EmailSignatures from './pages/EmailSignatures.jsx'
+import CMS from './pages/CMS.jsx'
 import ContactEnquiries from './pages/ContactEnquiries.jsx'
 import CareerApplications from './pages/CareerApplications.jsx'
 import MessagesPage from './pages/MessagesPage.jsx'
@@ -138,6 +139,12 @@ function AdminRoutes() {
           }
         />
         <Route path="/email-signatures" element={<Navigate to="/signatures" replace />} />
+
+        {/* 7. CMS (Content Management System) */}
+        <Route
+          path="/cms"
+          element={<CMS onNavigateToDashboard={() => navigate('/dashboard')} />}
+        />
 
         {/* 7. Contact Enquiries & Messages */}
         <Route

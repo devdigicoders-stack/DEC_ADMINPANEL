@@ -189,7 +189,7 @@ export default function EmailSignatures({ onNavigateToDashboard }) {
         Array.isArray(sig.certificationLogos) && sig.certificationLogos.length > 0
           ? sig.certificationLogos
           : DEFAULT_CERTIFICATION_LOGOS,
-      certLogoHeight: sig.certLogoHeight || 26,
+      certLogoHeight: sig.certLogoHeight || 28,
       certificationsUrl: sig.certificationsUrl || DEFAULT_SIGNATURE.certificationsUrl,
       showCustomAuthorityLogo: !!sig.showCustomAuthorityLogo,
       customAuthorityLogoUrl: sig.customAuthorityLogoUrl || '',
@@ -221,6 +221,7 @@ export default function EmailSignatures({ onNavigateToDashboard }) {
       gradeBadgeUrl: PRESET_GRADE_BADGE,
       showCertifications: true,
       certificationLogos: DEFAULT_CERTIFICATION_LOGOS,
+      certLogoHeight: 28,
       certificationsUrl: DEFAULT_SIGNATURE.certificationsUrl,
       showCustomAuthorityLogo: false,
       customAuthorityLogoUrl: '',
